@@ -26,6 +26,13 @@ class Api {
         echo $this->json;
     }
 
+    public function getRandom()
+    {
+        http_response_code(200);
+        header("Content-Type: application/json");
+        echo json_encode($this->content[array_rand($this->content)]);
+    }
+
     public function getID(int $id) 
     {
         $tableNumber = $id - 1;
