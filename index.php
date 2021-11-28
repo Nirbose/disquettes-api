@@ -1,6 +1,5 @@
 <?php
 
-use Api\Api;
 use Bramus\Router\Router;
 
 require("./vendor/autoload.php");
