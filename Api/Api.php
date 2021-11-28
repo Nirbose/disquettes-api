@@ -15,7 +15,7 @@ class Api {
 
     public function __construct() 
     {
-        $this->json = file_get_contents('./disquettes.json');
+        $this->json = file_get_contents('https://raw.githubusercontent.com/Nirbose/disquettes-api/main/disquettes.json');
         $this->content = json_decode($this->json, true);
     }
 
