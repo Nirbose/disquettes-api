@@ -6,8 +6,6 @@ class Api {
 
     /**
      * Variable contenant les disquettes du fichier disquettes.json
-     *
-     * @var JSON
      */
     public $json;
 
@@ -19,34 +17,67 @@ class Api {
         $this->content = json_decode($this->json, true);
     }
 
+    public function getApi()
+    {
+        $this->render([
+            "status" => 200,
+            "api" => "disquettes-api",
+            "routes" => [
+                "/",
+                "/api",
+                "/random",
+                "/firstname/{firstname}",
+                "/id/{id}",
+                "/all"
+            ]
+        ]);
+    }
+
     public function getAll()
     {
-        http_response_code(200);
-        header("Content-Type: application/json");
-        echo $this->json;
+        $this->render($this->content);
     }
 
     public function getRandom()
     {
-        http_response_code(200);
-        header("Content-Type: application/json");
-        echo json_encode($this->content[array_rand($this->content)]);
+        $this->render($this->content[array_rand($this->content)]);
     }
 
     public function getID(int $id) 
     {
         $tableNumber = $id - 1;
 
-        if (isset($this->content[$tableNumber])) { 
-            http_response_code(200);
-            $content = json_encode($this->content[$tableNumber]);            
+        if (isset($this->content[$tableNumber])) {
+            $content = $this->content[$tableNumber];         
         } else {
-            http_response_code(404);
-            $content = json_encode(["error" => "Not Found"]);
+            $content = ["error" => "Not Found", "code" => 404];
         }
 
+        $this->render($content);
+    }
+
+    public function getName(string $firstname)
+    {
+        $code = 404;
+        $content = ["error" => "Not Found", "code" => 404];
+        $list = [];
+
+        foreach ($this->content as $value) {
+            if (in_array($firstname, $value['firstname'])) {
+                $code = 200;
+                array_push($list, $value);
+                $content = $list;
+            }
+        }
+
+        $this->render($content, $code);
+    }
+
+    public function render($content, $code = 200)
+    {
+        http_response_code($code);
         header("Content-Type: application/json");
-        echo $content;
+        echo json_encode($content);
     }
 
 }
