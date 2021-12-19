@@ -108,5 +108,45 @@
         "id": 22,
         "sentence": "Ca te dit une pause clope mais sans clope ? Parce que c'est toi que je veux allumer",
         "firstname": []
+    },
+    {
+        "id": 23,
+        "sentence": "Tes yeux sont trop grands, on voit ton coeur à travers quand tu ris",
+        "firstname": []
+    },
+    {
+        "id": 24,
+        "sentence": "Tu connais la définition du mot charmante ? Non ? Regarde toi dans un miroir et tu verras...",
+        "firstname": []
+    },
+    {
+        "id": 25,
+        "sentence": "Si aimer est un crime, je plaide coupable",
+        "firstname": []
+    },
+    {
+        "id": 26,
+        "sentence": "Ton père n’est pas fermier ? Parce que t’es une belle petite poule",
+        "firstname": []
+    },
+    {
+        "id": 27,
+        "sentence": "Si le verbe aimer n’existait pas, je l’aurais inventé en te voyant",
+        "firstname": []
+    },
+    {
+        "id": 28,
+        "sentence": "Attendez Mlle, vous venez de faire tomber quelque chose ! Vous vener de faire tomber mon cœur",
+        "firstname": []
+    },
+    {
+        "id": 29,
+        "sentence": "Est-ce que tu as un plan ? Je me suis perdu dans tes yeux",
+        "firstname": []
+    },
+    {
+        "id": 30,
+        "sentence": "En temps normal je suis un très bon nageur, mais là je ne comprends pas je me noie dans tes yeux",
+        "firstname": []
     }
 ]
