@@ -15,6 +15,9 @@ class Api {
     {
         $this->json = file_get_contents('https://raw.githubusercontent.com/Nirbose/disquettes-api/main/disquettes.json');
         $this->content = json_decode($this->json, true);
+        foreach ($this->content as $key => $value) {
+            $this->content[$key]['sentence'] = htmlentities($value['sentence'], ENT_SUBSTITUTE);
+        }
     }
 
     public function getApi()
@@ -77,6 +80,7 @@ class Api {
     {
         http_response_code($code);
         header("Content-Type: application/json");
+        header('Content-Type: text/html; charset=utf-8');
         echo json_encode($content);
     }
 
